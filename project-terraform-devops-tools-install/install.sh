@@ -68,7 +68,11 @@ sudo usermod -aG docker ec2-user
 sudo usermod -aG docker jenkins 
 newgrp docker
 sudo chmod 777 /var/run/docker.sock
-sudo service docker start
+#sudo service docker start
+sudo systemctl start docker
+sudo systemctl enable docker
+
+
 #------------------sonar install by using docker---------------
 docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 docker run -d --name tomcat -p 8089:8080 tomcat:lts-community
